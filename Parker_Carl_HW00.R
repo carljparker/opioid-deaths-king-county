@@ -134,12 +134,18 @@ png( "viz/opioid-only-deaths.png",
       bg = rgb( 248, 245, 236, maxColorValue = 255 ) 
 )
 
+par( 
+    cex.main = 3, cex.axis = 1.75, cex.lab = 2,
+    # margins: bottom, left, top and right
+    par( mar = c( 6, 7, 4, 4 ) + 0.1 )  
+)
+
 plot( 
      csv.data.df$year, csv.data.df$opioid.only,
      ylim = c( 100, 200 ),
      main = "Opioid-only deaths by year",
      xlab="Year", ylab="Number of deaths", 
-     col = c( "orange" ) 
+     pch = 24, cex=3, col="blue", bg="red", lwd=2
 )
 
 dev.off()
