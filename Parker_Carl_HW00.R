@@ -128,6 +128,11 @@ dex.dataframe( csv.data.df )
 #
 setwd( "/Users/carljparker/git/dss/data-sci/opioid-deaths-king-county" )
 
+#
+# Guidance on plotting symbols from the following website:
+#
+#   http://www.sthda.com/english/wiki/r-plot-pch-symbols-the-different-point-shapes-available-in-r
+#
 png( "viz/opioid-only-deaths.png", 
       width = 500, height = 375, 
       units = "px", pointsize = 9, 
