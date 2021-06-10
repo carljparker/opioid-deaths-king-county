@@ -160,6 +160,29 @@ dev.off()
 
 ## @knitr q1b 
 
+png( "viz/opioid-only-deaths-large.png", 
+      width = 1500, height = 1125, 
+      units = "px", pointsize = 16, 
+      bg = rgb( 248, 245, 236, maxColorValue = 255 ) 
+)
+
+par( 
+    cex.main = 5, cex.axis = 2.50, cex.lab = 3,
+    # margins: bottom, left, top and right
+    par( mar = c( 7, 8, 5, 5 ) + 0.1 )  
+)
+
+plot( 
+     csv.data.df$year, csv.data.df$opioid.only,
+     ylim = c( 100, 200 ),
+     main = "Opioid-only deaths by year",
+     xlab="Year", ylab="Number of deaths", 
+     pch = 24, cex=3, col="blue", bg="red", lwd=2
+)
+
+abline( h = c( 134, 156 ), col = "blue" )
+
+dev.off()
 
 ## @knitr q1c 
 
