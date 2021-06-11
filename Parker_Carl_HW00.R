@@ -169,16 +169,19 @@ png( "viz/opioid-only-deaths-large.png",
 par( 
     cex.main = 5, cex.axis = 2.50, cex.lab = 3,
     # margins: bottom, left, top and right
-    par( mar = c( 7, 8, 5, 5 ) + 0.1 )  
+    par( mar = c( 10, 11, 8, 8 ) + 0.1 )  
 )
 
 plot( 
      csv.data.df$year, csv.data.df$opioid.only,
      ylim = c( 100, 200 ),
      main = "Opioid-only deaths by year",
-     xlab="Year", ylab="Number of deaths", 
+     xlab="", ylab = "",
      pch = 24, cex=3, col="blue", bg="red", lwd=2
 )
+
+title( xlab="Year", cex.lab = 3, line = 5 )
+title( ylab="Number of deaths", cex.lab = 3, line = 5 )
 
 abline( h = c( 134, 156 ), col = "blue" )
 
