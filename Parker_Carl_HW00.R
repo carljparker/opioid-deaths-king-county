@@ -52,7 +52,7 @@ dev.off()
 # Larger version of plot
 #
 png( "viz/opioid-only-deaths-large.png", 
-      width = 1500, height = 1125, 
+      width = 1200, height = 900, 
       units = "px", pointsize = 16, 
       bg = rgb( 248, 245, 236, maxColorValue = 255 ) 
 )
