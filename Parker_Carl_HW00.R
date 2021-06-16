@@ -37,7 +37,7 @@ par(
 
 plot( 
      csv.data.df$year, csv.data.df$opioid.only,
-     ylim = c( 100, 200 ),
+     ylim = c( 125, 175 ),
      main = "Opioid-only deaths by year",
      xlab="Year", ylab="Number of deaths", 
      pch = 24, cex=3, col="blue", bg="red", lwd=2
@@ -45,7 +45,7 @@ plot(
 
 # abline( h = c( 134, 156 ), col = "blue" )
 
-abline( lm( csv.data.df$opioid.only ~ csv.data.df$year ) )
+abline( lm( csv.data.df$opioid.only ~ csv.data.df$year ), lwd = 3, col = "slategrey" )
 
 dev.off()
 
@@ -67,7 +67,7 @@ par(
 
 plot( 
      csv.data.df$year, csv.data.df$opioid.only,
-     ylim = c( 100, 200 ),
+     ylim = c( 125, 175 ),
      main = "Opioid-only deaths by year",
      xlab="", ylab = "",
      pch = 24, cex=3, col="blue", bg="red", lwd=2
@@ -76,9 +76,13 @@ plot(
 title( xlab="Year", cex.lab = 3, line = 5 )
 title( ylab="Number of deaths", cex.lab = 3, line = 5 )
 
-abline( h = c( 134, 156 ), col = "blue" )
+# abline( h = c( 134, 156 ), col = "blue" )
+
+abline( lm( csv.data.df$opioid.only ~ csv.data.df$year ), lwd = 3, col = "slategrey" )
 
 dev.off()
+
+lm( csv.data.df$opioid.only ~ csv.data.df$year )
 
 
 # --- END --- #
