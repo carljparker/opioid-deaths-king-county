@@ -43,7 +43,9 @@ plot(
      pch = 24, cex=3, col="blue", bg="red", lwd=2
 )
 
-abline( h = c( 134, 156 ), col = "blue" )
+# abline( h = c( 134, 156 ), col = "blue" )
+
+abline( lm( csv.data.df$opioid.only ~ csv.data.df$year ) )
 
 dev.off()
 
