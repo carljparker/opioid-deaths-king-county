@@ -46,10 +46,16 @@ viz.opioid.deaths.tumblr <- function( out.name ) {
   )
 }
 
-# abline( h = c( 134, 156 ), col = "blue" )
-
+#
+# Add two horizontal "guides"
+#
 viz.opioid.deaths.tumblr( "viz/opioid-only-deaths.png" )
+abline( h = c( 134, 156 ), col = "blue" )
 
+#
+# Add a trend line
+#
+viz.opioid.deaths.tumblr( "viz/opioid-only-deaths-trend.png" )
 abline( lm( csv.data.df$opioid.only ~ csv.data.df$year ), lwd = 3, col = "slategrey" )
 
 dev.off()
@@ -84,14 +90,28 @@ viz.opioid.deaths.large <- function( out.name ) {
 
 }
 
-# abline( h = c( 134, 156 ), col = "blue" )
-
+#
+# Add two horizontal "guides"
+#
 viz.opioid.deaths.large( "viz/opioid-only-deaths-large.png" )
+
+abline( h = c( 134, 156 ), col = "blue" )
+
+dev.off()
+
+
+#
+# Add a trend line
+#
+viz.opioid.deaths.large( "viz/opioid-only-deaths-trend-large.png" )
                          
 abline( lm( csv.data.df$ opioid.only ~ csv.data.df$year ), lwd = 3, col = "slategrey" )
                          
 dev.off()
 
+#
+# Get the intercept and slope
+#
 lm( csv.data.df$opioid.only ~ csv.data.df$year )
 
 
