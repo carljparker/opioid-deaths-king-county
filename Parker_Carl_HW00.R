@@ -130,7 +130,7 @@ viz.stim.deaths.large <- function( out.name ) {
 
   plot( 
        csv.data.df$year, csv.data.df$stim.only,
-       ylim = c( 30, 125 ),
+       ylim = c( 30, 130 ),
        main = "Stimulant-only deaths by year",
        xlab="", ylab = "",
        pch = 24, cex=3, col="blue", bg="red", lwd=2
@@ -146,7 +146,13 @@ viz.stim.deaths.large <- function( out.name ) {
 #
 viz.stim.deaths.large( "viz/stim-only-deaths-trend-large.png" )
                          
-abline( lm( csv.data.df$ stim.only ~ csv.data.df$year ), lwd = 3, col = "slategrey" )
+abline( lm( csv.data.df$stim.only ~ csv.data.df$year ), lwd = 3, col = "slategrey" )
+
+points( 
+        x = 2019,
+        y = csv.data.df$opioid.only[ csv.data.df$year == 2019 ],
+        pch = 24, cex=3, col="black", bg="orange", lwd=2
+)
                          
 dev.off()
 
