@@ -112,6 +112,29 @@ dev.off()
 lm( csv.data.df$opioid.only ~ csv.data.df$year )
 
 
+viz.stim.deaths.tumblr <- function( out.name ) {
+  #
+  # Smaller version of plot for Tumblr
+  #
+  png( out.name, width = 500, height = 375, units = "px", pointsize = 9,
+      bg = rgb( 248, 245, 236, maxColorValue = 255 ) )
+
+  par( 
+      cex.main = 3, cex.axis = 1.75, cex.lab = 2,
+      # margins: bottom, left, top and right
+      par( mar = c( 6, 7, 4, 4 ) + 0.1 )  
+  )
+
+  plot( 
+       csv.data.df$year, csv.data.df$stim.only,
+       ylim = c( 30, 130 ),
+       main = "Stimulant-only deaths by year",
+       xlab="Year", ylab="Number of deaths", 
+       pch = 24, cex=3, col="blue", bg="red", lwd=2
+  )
+}
+
+
 viz.stim.deaths.large <- function( out.name ) {
   #
   # Larger version of plot
@@ -145,6 +168,23 @@ viz.stim.deaths.large <- function( out.name ) {
 # Add a trend line
 #
 viz.stim.deaths.large( "viz/stim-only-deaths-trend-large.png" )
+                         
+abline( lm( csv.data.df$stim.only ~ csv.data.df$year ), lwd = 3, col = "slategrey" )
+
+points( 
+        x = 2019,
+        y = csv.data.df$opioid.only[ csv.data.df$year == 2019 ],
+        pch = 24, cex=3, col="black", bg="orange", lwd=2
+)
+                         
+text( c( 2016.75 ), c( 129 ), c( "Lowest level for opioid-only deaths" ) )
+
+dev.off()
+
+#
+# Add a trend line
+#
+viz.stim.deaths.tumblr( "viz/stim-only-deaths-trend-tumblr.png" )
                          
 abline( lm( csv.data.df$stim.only ~ csv.data.df$year ), lwd = 3, col = "slategrey" )
 
