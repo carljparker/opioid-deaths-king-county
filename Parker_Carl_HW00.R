@@ -147,7 +147,7 @@ points(
         pch = 24, cex=3, col="black", bg="orange", lwd=2
 )
                          
-text( c( 2016.50 ), c( 129 ), c( "Lowest level for opioid-only deaths" ) )
+text( c( 2016.25 ), c( 129 ), c( "Lowest level for opioid-only deaths" ) )
 
 dev.off()
 
