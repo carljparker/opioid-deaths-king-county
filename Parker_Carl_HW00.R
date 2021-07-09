@@ -266,7 +266,7 @@ viz.oscomp.deaths.large <- function( out.name ) {
 
   plot( 
        csv.data.df$year, csv.data.df$stim.only,
-       ylim = c( 30, 175 ),
+       ylim = c( 0, 200 ),
        xlim = c( 2008, 2030 ),
        main = "Opioid-only and stim-only deaths by year",
        xlab="", ylab = "",
@@ -295,6 +295,8 @@ points(
 # Add the opioid-only trend line
 #
 abline( lm( csv.data.df$opioid.only ~ csv.data.df$year ), lwd = 3, col = "slategrey" )
+
+abline( v = c( 2027 + ( 5 * 1/12 ) ), col = "red" )
                          
 dev.off()
 
