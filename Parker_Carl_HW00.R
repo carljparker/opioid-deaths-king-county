@@ -267,6 +267,7 @@ viz.oscomp.deaths.large <- function( out.name ) {
   plot( 
        csv.data.df$year, csv.data.df$stim.only,
        ylim = c( 30, 175 ),
+       xlim = c( 2008, 2030 ),
        main = "Opioid-only and stim-only deaths by year",
        xlab="", ylab = "",
        pch = 24, cex=3, col="blue", bg="red", lwd=2
