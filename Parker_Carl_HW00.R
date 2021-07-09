@@ -286,15 +286,15 @@ viz.oscomp.deaths.large( "viz/opioid-stim-compare-deaths-trend-large.png" )
 abline( lm( csv.data.df$stim.only ~ csv.data.df$year ), lwd = 3, col = "slategrey" )
 
 points( 
-        x = 2019,
-        y = csv.data.df$opioid.only[ csv.data.df$year == 2019 ],
+        x = csv.data.df$year,
+        y = csv.data.df$opioid.only,
         pch = 24, cex=3, col="black", bg="orange", lwd=2
 )
                          
 #
 # Add the opioid-only trend line
 #
-abline( lm( csv.data.df$ opioid.only ~ csv.data.df$year ), lwd = 3, col = "slategrey" )
+abline( lm( csv.data.df$opioid.only ~ csv.data.df$year ), lwd = 3, col = "slategrey" )
                          
 dev.off()
 
