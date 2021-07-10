@@ -248,6 +248,12 @@ dev.off()
 lm( csv.data.df$opioid.and.stim ~ csv.data.df$year )
 
 
+#
+# Function to visualize a comparison of opioid-only and stim-only
+# deaths.
+#
+# Large size
+#
 viz.oscomp.deaths.large <- function( out.name ) {
   #
   # Larger version of plot
@@ -302,9 +308,66 @@ dev.off()
 
 
 #
-# Get the intercept and slope
+# Function to visualize a comparison of opioid-only and stim-only
+# deaths.
 #
-lm( csv.data.df$stim.only ~ csv.data.df$year )
+# Tumblr size
+#
+viz.oscomp.deaths.tumblr <- function( out.name ) {
+  #
+  # Smaller version of plot for Tumblr
+  #
+  png( out.name, 
+       width = 500, height = 375, 
+       units = "px", pointsize = 9,
+       bg = rgb( 248, 245, 236, maxColorValue = 255 ) 
+  )
+
+  #
+  # The value for `cex.axis` given here appears to be overriden by the
+  # values in the calls to `title()` further down.
+  #
+  par( 
+      cex.main = 2, cex.axis = 1.75, cex.lab = 2,
+      # margins: bottom, left, top and right
+      par( mar = c( 6, 7, 4, 4 ) + 0.1 )  
+  )
+
+  plot( 
+       csv.data.df$year, csv.data.df$stim.only,
+       ylim = c( 0, 200 ),
+       xlim = c( 2008, 2030 ),
+       main = "Opioid-only and stim-only deaths by year",
+       xlab="", ylab = "",
+       pch = 24, cex=3, col="blue", bg="red", lwd=2
+  )
+
+  title( xlab="Year", cex.lab = 2, line = 3 )
+  title( ylab="Number of deaths", cex.lab = 2, line = 3 )
+
+}
+
+#
+# Add the stim-only trend line
+#
+viz.oscomp.deaths.tumblr( "viz/opioid-stim-compare-deaths-trend-tumblr.png" )
+                         
+abline( lm( csv.data.df$stim.only ~ csv.data.df$year ), lwd = 3, col = "slategrey" )
+
+points( 
+        x = csv.data.df$year,
+        y = csv.data.df$opioid.only,
+        pch = 24, cex=3, col="black", bg="orange", lwd=2
+)
+                         
+#
+# Add the opioid-only trend line
+#
+abline( lm( csv.data.df$opioid.only ~ csv.data.df$year ), lwd = 3, col = "slategrey" )
+
+abline( v = c( 2027 + ( 5 * 1/12 ) ), col = "red" )
+                         
+dev.off()
 
 
 # --- END --- #
