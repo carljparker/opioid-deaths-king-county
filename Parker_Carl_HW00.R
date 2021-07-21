@@ -21,6 +21,9 @@ csv.data.df <- read.csv(
 #
 
 
+#
+# Opioid-only deaths: Viz for Tumblr
+#
 viz.opioid.deaths.tumblr <- function( out.name ) {
   #
   # Smaller version of plot for Tumblr
@@ -58,6 +61,9 @@ abline( lm( csv.data.df$opioid.only ~ csv.data.df$year ), lwd = 3, col = "slateg
 dev.off()
 
 
+#
+# Opioid-only deaths: Viz for GitHub (large)
+#
 viz.opioid.deaths.large <- function( out.name ) {
   #
   # Larger version of plot
@@ -96,7 +102,6 @@ abline( h = c( 134, 156 ), col = "blue" )
 
 dev.off()
 
-
 #
 # Add a trend line
 #
@@ -112,6 +117,9 @@ dev.off()
 lm( csv.data.df$opioid.only ~ csv.data.df$year )
 
 
+#
+# Stimulant-only deaths: Viz for Tumblr
+#
 viz.stim.deaths.tumblr <- function( out.name ) {
   #
   # Smaller version of plot for Tumblr
@@ -152,6 +160,9 @@ text( c( 2016.25 ), c( 129 ), c( "Lowest level for opioid-only deaths" ) )
 dev.off()
 
 
+#
+# Stimulant-only deaths: Viz for GitHub (large)
+#
 viz.stim.deaths.large <- function( out.name ) {
   #
   # Larger version of plot
@@ -204,6 +215,9 @@ dev.off()
 lm( csv.data.df$stim.only ~ csv.data.df$year )
 
 
+#
+# Opiate + Stimulant deaths: Viz for GitHub (large)
+#
 viz.opistim.deaths.large <- function( out.name ) {
   #
   # Larger version of plot
@@ -246,65 +260,6 @@ dev.off()
 # Get the intercept and slope
 #
 lm( csv.data.df$opioid.and.stim ~ csv.data.df$year )
-
-
-#
-# Function to visualize a comparison of opioid-only and stim-only
-# deaths.
-#
-# Large size
-#
-viz.oscomp.deaths.large <- function( out.name ) {
-  #
-  # Larger version of plot
-  #
-  png( out.name, 
-       width = 1200, height = 900, 
-       units = "px", pointsize = 16, 
-       bg = rgb( 248, 245, 236, maxColorValue = 255 ) 
-  )
-
-  par( 
-      cex.main = 3, cex.axis = 2.50, cex.lab = 3,
-      # margins: bottom, left, top and right
-      par( mar = c( 10, 11, 8, 8 ) + 0.1 )  
-  )
-
-  plot( 
-       csv.data.df$year, csv.data.df$stim.only,
-       ylim = c( 0, 200 ),
-       xlim = c( 2008, 2030 ),
-       main = "Opioid-only and stim-only deaths by year",
-       xlab="", ylab = "",
-       pch = 24, cex=3, col="blue", bg="red", lwd=2
-  )
-
-  title( xlab="Year", cex.lab = 3, line = 5 )
-  title( ylab="Number of deaths", cex.lab = 3, line = 5 )
-
-}
-
-#
-# Add the stim-only trend line
-#
-viz.oscomp.deaths.large( "viz/opioid-stim-compare-deaths-trend-large.png" )
-                         
-abline( lm( csv.data.df$stim.only ~ csv.data.df$year ), lwd = 3, col = "slategrey" )
-
-points( 
-        x = csv.data.df$year,
-        y = csv.data.df$opioid.only,
-        pch = 24, cex=3, col="black", bg="orange", lwd=2
-)
-                         
-#
-# Add the opioid-only trend line
-#
-abline( lm( csv.data.df$opioid.only ~ csv.data.df$year ), lwd = 3, col = "slategrey" )
-
-abline( v = c( 2027 + ( 5 * 1/12 ) ), col = "red" )
-                         
-dev.off()
 
 
 #
@@ -368,6 +323,66 @@ abline( lm( csv.data.df$opioid.only ~ csv.data.df$year ), lwd = 3, col = "slateg
 abline( v = c( 2027 + ( 5 * 1/12 ) ), col = "red" )
                          
 dev.off()
+
+
+#
+# Function to visualize a comparison of opioid-only and stim-only
+# deaths.
+#
+# Large size
+#
+viz.oscomp.deaths.large <- function( out.name ) {
+  #
+  # Larger version of plot
+  #
+  png( out.name, 
+       width = 1200, height = 900, 
+       units = "px", pointsize = 16, 
+       bg = rgb( 248, 245, 236, maxColorValue = 255 ) 
+  )
+
+  par( 
+      cex.main = 3, cex.axis = 2.50, cex.lab = 3,
+      # margins: bottom, left, top and right
+      par( mar = c( 10, 11, 8, 8 ) + 0.1 )  
+  )
+
+  plot( 
+       csv.data.df$year, csv.data.df$stim.only,
+       ylim = c( 0, 200 ),
+       xlim = c( 2008, 2030 ),
+       main = "Opioid-only and stim-only deaths by year",
+       xlab="", ylab = "",
+       pch = 24, cex=3, col="blue", bg="red", lwd=2
+  )
+
+  title( xlab="Year", cex.lab = 3, line = 5 )
+  title( ylab="Number of deaths", cex.lab = 3, line = 5 )
+
+}
+
+#
+# Add the stim-only trend line
+#
+viz.oscomp.deaths.large( "viz/opioid-stim-compare-deaths-trend-large.png" )
+                         
+abline( lm( csv.data.df$stim.only ~ csv.data.df$year ), lwd = 3, col = "slategrey" )
+
+points( 
+        x = csv.data.df$year,
+        y = csv.data.df$opioid.only,
+        pch = 24, cex=3, col="black", bg="orange", lwd=2
+)
+                         
+#
+# Add the opioid-only trend line
+#
+abline( lm( csv.data.df$opioid.only ~ csv.data.df$year ), lwd = 3, col = "slategrey" )
+
+abline( v = c( 2027 + ( 5 * 1/12 ) ), col = "red" )
+                         
+dev.off()
+
 
 
 # --- END --- #
