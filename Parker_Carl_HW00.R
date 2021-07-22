@@ -216,7 +216,42 @@ lm( csv.data.df$stim.only ~ csv.data.df$year )
 
 
 #
-# Opiate + Stimulant deaths: Viz for GitHub (large)
+# Opioid + Stimulant deaths: Viz for Tumblr 
+#
+viz.opistim.deaths.tumblr <- function( out.name ) {
+  #
+  # Smaller version of plot for Tumblr
+  #
+  png( out.name, width = 500, height = 375, units = "px", pointsize = 9,
+      bg = rgb( 248, 245, 236, maxColorValue = 255 ) )
+
+  par( 
+      cex.main = 3, cex.axis = 1.75, cex.lab = 2,
+      # margins: bottom, left, top and right
+      par( mar = c( 6, 7, 4, 4 ) + 0.1 )  
+  )
+
+  plot( 
+       csv.data.df$year, csv.data.df$stim.only,
+       ylim = c( 30, 130 ),
+       main = "Opioid + Stimulant deaths by year",
+       xlab="Year", ylab="Number of deaths", 
+       pch = 24, cex=3, col="blue", bg="red", lwd=2
+  )
+}
+
+#
+# Add a trend line
+#
+viz.opistim.deaths.tumblr( "viz/opioid-stim-deaths-trend-tumblr.png" )
+                         
+abline( lm( csv.data.df$opioid.and.stim ~ csv.data.df$year ), lwd = 3, col = "slategrey" )
+
+dev.off()
+
+
+#
+# Opioid + Stimulant deaths: Viz for GitHub (large)
 #
 viz.opistim.deaths.large <- function( out.name ) {
   #
