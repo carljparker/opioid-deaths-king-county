@@ -264,7 +264,7 @@ abline( lm( csv.data.df$opioid.only ~ csv.data.df$year ), lwd = 3, col = "slateg
 #
 # Add the intersection line
 #
-abline( v = c( 2018 + ( 5 * 1/12 ) ), col = "red" )
+abline( v = c( 2018 + ( 8 * 1/12 ) ), col = "red" )
 
 dev.off()
 
@@ -325,7 +325,7 @@ abline( lm( csv.data.df$opioid.only ~ csv.data.df$year ), lwd = 3, col = "slateg
 #
 # Add the intersection line
 #
-abline( v = c( 2018 + ( 5 * 1/12 ) ), col = "red" )
+abline( v = c( 2018 + ( 8 * 1/12 ) ), col = "red" )
 
 dev.off()
 
