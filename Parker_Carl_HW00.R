@@ -332,7 +332,7 @@ legend(
         title = "Cause of death",
         bg = "white",
         legend = c( "Opioid + Stimulant", "Opioid only" ),
-        pch = 21,
+        pch = 24,
         pt.cex = 2,
         pt.bg = c( "blue", "orange" )
 )
