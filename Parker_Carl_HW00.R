@@ -327,6 +327,16 @@ abline( lm( csv.data.df$opioid.only ~ csv.data.df$year ), lwd = 3, col = "slateg
 #
 abline( v = c( 2018 + ( 8 * 1/12 ) ), col = "red" )
 
+legend(
+        "bottomright", 
+        title = "Cause of death",
+        bg = "white",
+        legend = c( "Opioid + Stimulant", "Opioid only" ),
+        pch = 21,
+        pt.cex = 2,
+        pt.bg = c( "blue", "orange" )
+)
+
 dev.off()
 
 #
