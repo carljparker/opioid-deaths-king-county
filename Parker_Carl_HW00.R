@@ -329,6 +329,7 @@ abline( v = c( 2018 + ( 8 * 1/12 ) ), col = "red" )
 
 legend(
         "bottomright", 
+        inset = c( 0.20, 0.075 ),
         title = "Cause of death",
         bg = "white",
         legend = c( "Opioid + Stimulant", "Opioid only" ),
