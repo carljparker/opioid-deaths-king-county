@@ -334,6 +334,7 @@ legend(
         legend = c( "Opioid + Stimulant", "Opioid only" ),
         pch = 24,
         pt.cex = 2,
+        col   = c( "black", "black" ),
         pt.bg = c( "blue", "orange" )
 )
 
